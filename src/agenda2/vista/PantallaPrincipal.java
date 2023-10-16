@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package agenda2.vista;
 
 import logica.Logica;
@@ -11,6 +7,16 @@ import logica.Logica;
  * @author HuGo
  */
 public class PantallaPrincipal extends javax.swing.JFrame {
+    
+    //Variables globales
+    String dnis[] = new String[10];
+    String nombres[] = new String[10];
+    String apellidos[] = new String[10];
+    String direcciones[] = new String[10];
+    String telefonos[] = new String[10];
+    String fechanacimientos[] = new String[10];
+    
+    
 
     /**
      * Creates new form PantallaPrincipal
@@ -94,6 +100,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        txtindice.setEditable(false);
         txtindice.setText("0");
         txtindice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,8 +221,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtindiceActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-       
+       int valorIndice =  Integer.parseInt(txtindice.getText());
+        dnis[valorIndice] = txtdni.getText();
+        nombres[valorIndice] = txtnombre.getText();
+        apellidos[valorIndice] = txtapellido.getText();
+        direcciones[valorIndice] = txtdireccion.getText();
+        telefonos[valorIndice] = txttelefono.getText();
+        fechanacimientos[valorIndice] = txtfechanac.getText();
         System.out.println("ingresado dni");
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -229,6 +241,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             txtindice.setText(String.valueOf(textoIndice));
         }
         lbltexto.setText(txtindice.getText());
+        mostrarElementos();
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -242,13 +255,20 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             txtindice.setText(String.valueOf(textoIndice));
         }
         lbltexto.setText(txtindice.getText());
-        
+        mostrarElementos();
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    
+    
+    public void mostrarElementos(){
+        txtdni.setText(dnis[Integer.parseInt(txtindice.getText())]);
+        txtnombre.setText(nombres[Integer.parseInt(txtindice.getText())]);
+        txtapellido.setText(apellidos[Integer.parseInt(txtindice.getText())]);
+        txtdireccion.setText(direcciones[Integer.parseInt(txtindice.getText())]);
+        txtfechanac.setText(fechanacimientos[Integer.parseInt(txtindice.getText())]);
+        txttelefono.setText(telefonos[Integer.parseInt(txtindice.getText())]);        
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
